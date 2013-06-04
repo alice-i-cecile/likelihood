@@ -9,12 +9,13 @@
 # load the simulated annealing library
 library(likelihood)
 
-setwd("C:\\Users\\canhamc\\Documents\\Likelihood Course\\Course_Schedule_2012\\Day_1")
+# load the ggplot2 library
+
 # load the BC Sapling Growth datafile
-BCdata <- read.table("BC Sapling Growth Data.txt",header=T,sep="\t",as.is=T)
+BCdata <- read.csv("BCdata.csv",header=T,as.is=T)
 
 # display list of variables in the data file
-str(BCdata)
+print(names(BCdata))
 
 # create a working dataset for one of the species
 #  in one of the subzones
@@ -32,9 +33,8 @@ data$size <- data$radius - 5*data$meanrg  #create a variable with size (radius
 #   in mm) at the beginning of the measurement period
 
 # examine scatterplots
-plot(data$global,data$meanrg)
-windows()
-plot(data$size,data$meanrg)
+ggplot(data=data, aes(x=global, y=meanrg)) + geom_point() + geom_smooth()
+ggplot(data=data, aes(x=size, y=meanrg)) + geom_point() + geom_smooth()
 
 #######################################################
 #

@@ -12,6 +12,3 @@
 # P(\theta | x) \neq P(x | \theta)
 # L (theta | x) \propto P(x | \theta)
 # LS is PDF, RS is likelihood function
-
-
-
